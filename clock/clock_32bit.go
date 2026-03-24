@@ -1,4 +1,4 @@
-//go:build !386 && !arm
+//go:build 386 || arm
 
 /*
 Copyright (c) Facebook, Inc. and its affiliates.
@@ -26,10 +26,11 @@ import (
 
 func setFreq(tx *unix.Timex, freqPPB float64) {
 	// man(2) clock_adjtime, turn ppb to ppm
-	tx.Freq = int64(freqPPB * PPBToTimexPPM)
+	tx.Freq = int32(freqPPB * PPBToTimexPPM)
 }
 
 func setTime(tx *unix.Timex, sec, usec time.Duration) {
-	tx.Time.Sec = int64(sec)
-	tx.Time.Usec = int64(usec)
+	tx.Time.Sec = int32(sec)
+	tx.Time.Usec = int32(usec)
 }
+

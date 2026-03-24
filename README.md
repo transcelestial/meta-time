@@ -15,7 +15,14 @@
 
 ## Documentation
 
-Collection of Meta's Time Libraries such as NTP and PTP
+Fork of Collection of Meta's Time Libraries such as NTP and PTP. Has changes to support 32-bit ARM.
+
+The only command you'll need to build "ntpresponder-raspbian" binary
+
+```
+cd cmd/ntpresponder
+GOOS=linux GOARCH=arm GOARM=7 go build -o ntpresponder-raspbian
+```
 
 ### cmd
 All executables provided by this repo.
