@@ -88,5 +88,5 @@ func EnableTimestamps(ts Timestamp, connFd int, _ *net.Interface) error {
 
 // EnableRXQueueOverflow is not implemented for darwin
 func EnableRXQueueOverflow(connFd int) error {
-	return err.Errorf("RX queue overflow is not supported on darwin")
+	return fmt.Errorf("RX queue overflow is not supported on darwin")
 }
